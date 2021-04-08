@@ -32,5 +32,5 @@ setup(
     zip_safe=False,
     extras_require={"testing": tests_require},
     install_requires=requires,
-    entry_points={"formshare.plugins": ["alliance_submission = alliance_submission.plugin:alliance_submission"]},
+    entry_points={"formshare.plugins": ["alliance_submission = alliance_submission.plugin:AllianceSubmission"]},
 )
