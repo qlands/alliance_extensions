@@ -1,0 +1,5 @@
+{% extend_me %}
+
+{% block navbar_logo %}
+    <a href="{{ request.route_url('home') }}" style="{% block nav_brand_style %}margin-left: -16px; background: #026AA8{% endblock nav_brand_style %}" class="navbar-brand"><img alt="image" src="{{ request.url_for_static('formshare-small-black.png') }}"/> Form<b>Share</b></a>
+{% endblock navbar_logo %}
