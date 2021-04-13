@@ -6,4 +6,5 @@ The extensions are:
 - alliance_branding: Change the look of FormShare to adapt it to the Alliance branding. Also adds custom data policies.
 - alliance_submission: Change the way FormShare process ODK submission media for certain projects to store the original file in a FTP server and just a thumbnail in FormShare
 - odata_deployment: Custom deployment of OData Servlets
+- alliance_authentication: Authenticate user accounts against the CGIAR Active Directory
 
