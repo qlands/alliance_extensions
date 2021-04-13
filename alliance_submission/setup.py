@@ -15,7 +15,7 @@ tests_require = ["WebTest >= 1.3.1", "pytest", "pytest-cov"]  # py3 compat
 setup(
     name="alliance_submission",
     version="1.0",
-    description="Alliance Submission Extensions",
+    description="Alliance Submission Plugin",
     long_description=README + "\n\n" + CHANGES,
     classifiers=[
         "Programming Language :: Python",
@@ -23,7 +23,7 @@ setup(
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",
     ],
-    author="Carlos Quiros Campos",
+    author="Carlos Quiros",
     author_email="c.f.quiros@cgiar.org",
     url="https://formshare.ciat.cgiar.org/",
     keywords="formshare plugin",
@@ -32,5 +32,10 @@ setup(
     zip_safe=False,
     extras_require={"testing": tests_require},
     install_requires=requires,
-    entry_points={"formshare.plugins": ["alliance_submission = alliance_submission.plugin:AllianceSubmission"]},
+    entry_points={
+        "formshare.plugins": [
+            "alliance_submission = alliance_submission.plugin:alliance_submission"
+        ],
+        "formshare.tasks": ["alliance_submission = alliance_submission.celerytasks"],
+    },
 )

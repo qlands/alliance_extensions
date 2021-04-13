@@ -23,7 +23,11 @@ class AllianceODataDeployment(plugins.SingletonPlugin):
                 absolute_path,
                 "{}@{}:{}".format(scp_cert_user, scp_cert_host, scp_cert_directory),
             ]
-            log.error("Deploying {} through SCP. Command: {}".format(absolute_path, " ".join(args)))
+            log.error(
+                "Deploying {} through SCP. Command: {}".format(
+                    absolute_path, " ".join(args)
+                )
+            )
             p = Popen(args, stdout=PIPE, stderr=PIPE)
             stdout, stderr = p.communicate()
             if p.returncode == 0:

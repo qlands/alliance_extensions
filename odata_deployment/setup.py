@@ -32,5 +32,9 @@ setup(
     zip_safe=False,
     extras_require={"testing": tests_require},
     install_requires=requires,
-    entry_points={"formshare.plugins": ["odata_deployment = odata_deployment.plugin:AllianceODataDeployment"]},
+    entry_points={
+        "formshare.plugins": [
+            "odata_deployment = odata_deployment.plugin:AllianceODataDeployment"
+        ]
+    },
 )
