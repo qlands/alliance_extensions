@@ -4,6 +4,9 @@ import os
 import glob
 import ftplib
 import shutil
+from celery.utils.log import get_task_logger
+
+log = get_task_logger(__name__)
 
 
 @celeryApp.task(base=CeleryTask)
@@ -29,7 +32,7 @@ def ftp_transfer(settings, submission):
                 session.quit()
                 os.remove(media_file)
             except Exception as e:
-                print(
+                log.error(
                     "FTPStorageError: Cannot store file {} in FTP server for submission {}. "
                     "Error: {}".format(media_file, submission, str(e))
                 )
@@ -38,7 +41,7 @@ def ftp_transfer(settings, submission):
             try:
                 shutil.rmtree(repository_path)
             except Exception as e:
-                print(
+                log.error(
                     "FTPStorageError: Cannot remove repository path {} for submission {}. "
                     "Error: {}".format(repository_path, submission, str(e))
                 )
