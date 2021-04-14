@@ -34,17 +34,31 @@ def ftp_transfer(settings, submission):
                     ftp_path = settings.get("ftp.path")
                     try:
                         print("Sending file {}".format(media_file))
-                        args = ["curl", "--user", "{}:{}".format(ftp_user, ftp_password),
-                                "--upload-file", media_file, "ftp://{}{}".format(ftp_server, ftp_path)]
+                        args = [
+                            "curl",
+                            "--user",
+                            "{}:{}".format(ftp_user, ftp_password),
+                            "--upload-file",
+                            media_file,
+                            "ftp://{}{}".format(ftp_server, ftp_path),
+                        ]
                         p = Popen(args, stdout=PIPE, stderr=PIPE)
                         stdout, stderr = p.communicate()
                         if p.returncode != 0:
-                            log.error("Error: {}-{}".format(stdout.decode(), stderr.decode()))
+                            log.error(
+                                "FTPStorageError: Sending file {}. Error: {}-{}".format(
+                                    media_file, stdout.decode(), stderr.decode()
+                                )
+                            )
                         else:
                             try:
                                 os.remove(media_file)
                             except Exception as e:
-                                log.error("Cannot remove file {}. Error: {}".format(media_file, str(e)))
+                                log.error(
+                                    "Cannot remove file {}. Error: {}".format(
+                                        media_file, str(e)
+                                    )
+                                )
                             print("File {} sent".format(media_file))
                     except Exception as e:
                         log.error(
