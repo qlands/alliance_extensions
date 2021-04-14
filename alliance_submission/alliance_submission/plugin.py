@@ -3,7 +3,7 @@ import os
 import shutil
 from PIL import Image
 import imghdr
-from celerytasks import ftp_transfer
+from alliance_submission.ftptasks import ftp_transfer
 
 
 class AllianceSubmission(plugins.SingletonPlugin):
@@ -49,7 +49,8 @@ class AllianceSubmission(plugins.SingletonPlugin):
                     "ftp.repository.path"
                 )
                 repository_path = os.path.join(ftp_repository_path, *[submission])
-                os.makedirs(repository_path)
+                if not os.path.exists(repository_path):
+                    os.makedirs(repository_path)
 
                 file_name = submission + "_" + os.path.basename(media_file)
                 repository_file = os.path.join(repository_path, *[file_name])

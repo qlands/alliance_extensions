@@ -35,7 +35,7 @@ class alliance_authentication(plugins.SingletonPlugin):
 
     def on_authenticate_password(self, request, user_data, password):
         java_java = request.registry.settings.get("java.authentication.jar")
-        args = ["java" "-jar " + java_java]
+        args = ["java", "-jar", java_java]
         if (
             request.registry.settings.get("java.authentication.remote", "false")
             == "true"
@@ -43,19 +43,29 @@ class alliance_authentication(plugins.SingletonPlugin):
             args.append("-r")
         args.append("-e " + user_data["user_email"])
         args.append("-p " + password)
-        p = Popen(args, stdout=PIPE, stderr=PIPE)
-        stdout, stderr = p.communicate()
-        if p.returncode == 0:
+        try:
+            p = Popen(args, stdout=PIPE, stderr=PIPE)
+            stdout, stderr = p.communicate()
+        except Exception as e:
+            log.error(
+                "CGIARADAuthenticationError: "
+                "Error while excuting Java authenticating user {}. Error: {}".format(
+                    user_data["user_email"], str(e)
+                )
+            )
+            return False
+        error_no = p.returncode
+        if error_no == 0:
             return True
         else:
-            if p.returncode == 1:
+            if error_no == 1:
                 log.error(
                     "CGIARADAuthenticationError: "
                     "Error while authenticating user {}. Error: {}-{}".format(
                         user_data["user_email"], stdout.decode(), stderr.decode()
                     )
                 )
-            if p.returncode == 2:
+            if error_no == 2:
                 log.error(
                     "CGIARADAuthenticationError: "
                     "User {} provided an invalid password".format(

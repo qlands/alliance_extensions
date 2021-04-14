@@ -3,3 +3,20 @@
 {% block logingheadmsg %}
     <p>{{ _('Sign in with your CGIAR email and password') }}</p>
 {% endblock logingheadmsg %}
+
+{% block loginform %}
+    <form class="m-t" role="form" method="post" action="{{ request.url }}">
+        {{ form.secure_form(request) }}
+        <input id="user" type="text" name="user" class="form-control" placeholder="{{ _('Username') }}">
+        <div class="form-group">
+            <input type="text" name="email" class="form-control" placeholder="{{ _('CGIAR email address') }}" required="">
+        </div>
+        <div class="form-group">
+            <input type="password" name="passwd" class="form-control" placeholder="{{ _('Password') }}" required="">
+        </div>
+        {% block login_extra %}
+
+        {% endblock login_extra %}
+        <button type="submit" class="btn btn-primary block full-width m-b">{{ _('Sign in') }}</button>
+    </form>
+{% endblock loginform %}
