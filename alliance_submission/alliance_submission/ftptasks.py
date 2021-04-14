@@ -17,8 +17,6 @@ def ftp_transfer(settings, submission):
     if os.path.exists(repository_path):
         media_path = os.path.join(repository_path, *["*.*"])
         files = glob.glob(media_path)
-        error = False
-
         redis_host = settings.get("redis.sessions.host", "localhost")
         redis_port = int(settings.get("redis.sessions.port", "6379"))
         r = redis.Redis(host=redis_host, port=redis_port)
