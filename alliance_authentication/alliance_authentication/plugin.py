@@ -41,8 +41,10 @@ class alliance_authentication(plugins.SingletonPlugin):
             == "true"
         ):
             args.append("-r")
-        args.append("-e " + user_data["user_email"])
-        args.append("-p " + password)
+        args.append("-e")
+        args.append(user_data["user_email"])
+        args.append("-p")
+        args.append(password)
         try:
             p = Popen(args, stdout=PIPE, stderr=PIPE)
             stdout, stderr = p.communicate()
