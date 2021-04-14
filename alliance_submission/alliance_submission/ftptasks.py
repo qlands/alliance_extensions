@@ -3,9 +3,11 @@ from formshare.config.celery_class import CeleryTask
 import os
 import glob
 from subprocess import Popen, PIPE
-import shutil
+import uuid
+import datetime
 import redis
 from celery.utils.log import get_task_logger
+from sqlalchemy import create_engine
 
 log = get_task_logger(__name__)
 
@@ -14,7 +16,10 @@ log = get_task_logger(__name__)
 def ftp_transfer(settings, submission):
     ftp_repository_path = settings.get("ftp.repository.path")
     repository_path = os.path.join(ftp_repository_path, *[submission])
+    ftp_submission_db = settings.get("ftp.submission.db")
     if os.path.exists(repository_path):
+        sqlite_engine = "sqlite:///{}".format(ftp_submission_db)
+        engine = create_engine(sqlite_engine)
         media_path = os.path.join(repository_path, *["*.*"])
         files = glob.glob(media_path)
         redis_host = settings.get("redis.sessions.host", "localhost")
@@ -48,7 +53,37 @@ def ftp_transfer(settings, submission):
                                     media_file, stdout.decode(), stderr.decode()
                                 )
                             )
+                            engine.execute(
+                                "INSERT INTO submission (submission_id,submission_datetime,"
+                                "odk_submission,submission_file,submission_size,submission_status) "
+                                "VALUES ('{}','{}','{}','{}',{},{})".format(
+                                    ftp_submission_id,
+                                    datetime.datetime.now().strftime(
+                                        "%Y-%m-%d %H:%M:%S"
+                                    ),
+                                    submission,
+                                    media_file,
+                                    os.path.getsize(media_file),
+                                    1,
+                                )
+                            )
                         else:
+                            ftp_submission_id = str(uuid.uuid4())
+                            # noinspection SqlDialectInspection
+                            engine.execute(
+                                "INSERT INTO submission (submission_id,submission_datetime,"
+                                "odk_submission,submission_file,submission_size,submission_status) "
+                                "VALUES ('{}','{}','{}','{}',{},{})".format(
+                                    ftp_submission_id,
+                                    datetime.datetime.now().strftime(
+                                        "%Y-%m-%d %H:%M:%S"
+                                    ),
+                                    submission,
+                                    media_file,
+                                    os.path.getsize(media_file),
+                                    0,
+                                )
+                            )
                             try:
                                 os.remove(media_file)
                             except Exception as e:
@@ -63,3 +98,4 @@ def ftp_transfer(settings, submission):
                             "FTPStorageError: Cannot store file {} in FTP server for submission {}. "
                             "Error: {}".format(media_file, submission, str(e))
                         )
+        engine.dispose()
