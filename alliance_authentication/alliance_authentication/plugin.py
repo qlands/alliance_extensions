@@ -63,13 +63,16 @@ class alliance_authentication(plugins.SingletonPlugin):
             finally:
                 time_out.cancel()
         except Exception as e:
-            log.error(
-                "CGIARADAuthenticationError: "
-                "Error while excuting Java authenticating user {}. Error: {}".format(
-                    user_data["user_email"], str(e)
+            if not time_out_flag:
+                log.error(
+                    "CGIARADAuthenticationError: "
+                    "Error while excuting Java authenticating user {}. Error: {}".format(
+                        user_data["user_email"], str(e)
+                    )
                 )
-            )
-            return False, _("Error while authenticating your account with the CGIAR AD")
+                return False, _("Error while authenticating your account with the CGIAR AD")
+            else:
+                return False, _("Timeout while authenticating your account with the CGIAR AD")
         if time_out_flag:
             return False, _("Timeout while authenticating your account with the CGIAR AD")
         error_no = p.returncode
