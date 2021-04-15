@@ -56,7 +56,9 @@ class alliance_authentication(plugins.SingletonPlugin):
 
         try:
             p = Popen(args, stdout=PIPE, stderr=PIPE)
-            time_out = Timer(5, kill_time_out, [p])  # Wait 5 seconds to authenticate with CGIAR AD
+            time_out = Timer(
+                30, kill_time_out, [p]
+            )  # Wait 5 seconds to authenticate with CGIAR AD
             try:
                 time_out.start()
                 stdout, stderr = p.communicate()
@@ -70,11 +72,20 @@ class alliance_authentication(plugins.SingletonPlugin):
                         user_data["user_email"], str(e)
                     )
                 )
-                return False, _("Error while authenticating your account with the CGIAR AD")
+                return (
+                    False,
+                    _("Error while authenticating your account with the CGIAR AD"),
+                )
             else:
-                return False, _("Timeout while authenticating your account with the CGIAR AD")
+                return (
+                    False,
+                    _("Timeout while authenticating your account with the CGIAR AD"),
+                )
         if time_out_flag:
-            return False, _("Timeout while authenticating your account with the CGIAR AD")
+            return (
+                False,
+                _("Timeout while authenticating your account with the CGIAR AD"),
+            )
         error_no = p.returncode
         if error_no == 0:
             return True, ""
@@ -86,7 +97,10 @@ class alliance_authentication(plugins.SingletonPlugin):
                         user_data["user_email"], stdout.decode(), stderr.decode()
                     )
                 )
-                return False, _("Error while authenticating your account with the CGIAR AD")
+                return (
+                    False,
+                    _("Error while authenticating your account with the CGIAR AD"),
+                )
             if error_no == 2:
                 log.error(
                     "CGIARADAuthenticationError: "
@@ -94,7 +108,10 @@ class alliance_authentication(plugins.SingletonPlugin):
                         user_data["user_email"]
                     )
                 )
-                return False, _("The email account does not exist or the password is invalid")
+                return (
+                    False,
+                    _("The email account does not exist or the password is invalid"),
+                )
 
     def after_collaborator_login(self, request, collaborator):
         return True, ""
