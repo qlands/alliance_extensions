@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alliance_authentication 1.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-04-14 21:17+0000\n"
+"POT-Creation-Date: 2021-04-15 17:26-0600\n"
 "PO-Revision-Date: 2021-04-13 15:28-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -19,6 +19,18 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
+
+#: alliance_authentication/plugin.py:77 alliance_authentication/plugin.py:102
+msgid "Error while authenticating your account with the CGIAR AD"
+msgstr "Échec de l'authentification de votre compte avec CGIAR AD"
+
+#: alliance_authentication/plugin.py:82 alliance_authentication/plugin.py:87
+msgid "Timeout while authenticating your account with the CGIAR AD"
+msgstr "Votre compte n'a pas pu être authentifié auprès du CGIAR AD dans le délai prévu"
+
+#: alliance_authentication/plugin.py:113
+msgid "The email account does not exist or the password is invalid"
+msgstr "L'adresse électronique n'existe pas ou le mot de passe n'est pas valide."
 
 #: alliance_authentication/templates/generic/login.jinja2:4
 msgid "Sign in with your CGIAR email and password"
