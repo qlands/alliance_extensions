@@ -12,8 +12,8 @@ from sqlalchemy import create_engine
 log = get_task_logger(__name__)
 
 
-@celeryApp.task(base=CeleryTask)
-def ftp_transfer(settings, submission):
+@celeryApp.task(bind=True, base=CeleryTask)
+def ftp_transfer(self, settings, submission):
     ftp_repository_path = settings.get("ftp.repository.path")
     repository_path = os.path.join(ftp_repository_path, *[submission])
     ftp_submission_db = settings.get("ftp.submission.db")
@@ -27,6 +27,8 @@ def ftp_transfer(settings, submission):
         r = redis.Redis(host=redis_host, port=redis_port)
 
         for media_file in files:
+            if self.is_aborted():
+                return
             if os.path.exists(media_file):
                 redis_key = "ftp-{}".format(os.path.basename(media_file))
                 if r.get(redis_key) is None:
