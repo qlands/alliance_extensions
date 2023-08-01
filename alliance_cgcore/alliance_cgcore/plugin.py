@@ -9,7 +9,6 @@ class alliance_cgcore(plugins.SingletonPlugin):
     plugins.implements(plugins.IRoutes)
     plugins.implements(plugins.IConfig)
     plugins.implements(plugins.ITranslation)
-    plugins.implements(plugins.IDatabase)
 
     def before_mapping(self, config):
         # We don't add any routes before the host application
@@ -41,10 +40,3 @@ class alliance_cgcore(plugins.SingletonPlugin):
 
     def get_translation_domain(self):
         return "alliance_cgcore"
-
-    def update_orm(self, config):
-        config.include("alliance_cgcore.orm")
-
-    def update_extendable_tables(self, tables_allowed):
-        tables_allowed.append("alliance_cgcore_example")
-        return tables_allowed
