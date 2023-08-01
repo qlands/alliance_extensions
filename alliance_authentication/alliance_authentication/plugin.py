@@ -115,7 +115,13 @@ class alliance_authentication(plugins.SingletonPlugin):
                         _("The email account does not exist or the password is invalid"),
                     )
         else:
-            return check_login(user_data["user_id"], password, request)
+            if check_login(user_data["user_id"], password, request):
+                return True,""
+            else:
+                return (
+                    False,
+                    _("The email account does not exist or the password is invalid"),
+                )
 
     def after_collaborator_login(self, request, collaborator):
         return True, ""
