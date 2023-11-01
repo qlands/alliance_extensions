@@ -1,0 +1,35 @@
+{% extend_me %}
+
+{% block login_errors %}
+    {% set messageData = request.session.pop_flash() %}
+    {% if messageData|length > 0 %}
+        <div class="alert alert-danger alert-dismissable">
+            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+            {{ messageData[0] }}.
+        </div>
+    {% endif %}
+{% endblock login_errors %}
+
+{% block loginform %}
+    <a href="{{ auth_url }}">{{ _('Sign in with your CGIAR account') }}</a>
+    <hr>
+    {{ _('or if you are a partner with your email address and password') }}
+    <form class="m-t require_busy" role="form" method="post" action="{{ request.route_url('login_normal') }}">
+        {{ form.secure_form(request) }}
+        <input id="user" autocomplete="off" type="text" name="user" class="form-control" placeholder="{{ _('Username') }}">
+        <div class="form-group">
+            <input type="email" autocomplete="off" name="email" class="form-control" placeholder="{{ _('Email address') }}" required="">
+        </div>
+        <div class="form-group">
+            <input type="password" autocomplete="off" name="passwd" class="form-control" placeholder="{{ _('Password') }}" required="">
+        </div>
+        {% block login_extra %}
+
+        {% endblock login_extra %}
+        <button type="submit" class="btn btn-primary block full-width m-b">{{ _('Sign in') }}</button>
+    </form>
+{% endblock loginform %}
+
+{% block login_tools %}
+
+{% endblock login_tools %}

@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: HealthRight_sso\n"
+"Language: es\n"
+
+#: sso/plugin.py:83
+msgid "You must use the link \"Sign in with your HealthRight account\""
+msgstr "Debe utilizar el enlace \"Iniciar sesión con su cuenta HealthRight\""
+
+#: sso/views.py:76 sso/views.py:92
+msgid "Error while authorizing your credentials"
+msgstr "Error al autorizar sus credenciales"
+
+#: sso/views.py:101
+msgid "Your user account hasn't been registered in MEARL. Contact the MEARL administrator"
+msgstr "Tu cuenta de usuario no se ha registrado en MEARL. Póngase en contacto con el administrador de MEARL"
+
+#: sso/templates/dashboard/users/snippets/user_form.jinja2:4
+msgid "Is super user"
+msgstr "Es superusuario"
+
+#: sso/templates/dashboard/users/snippets/user_form.jinja2:8
+msgid "Can create projects"
+msgstr "Puede crear proyectos"
+
+#: sso/templates/dashboard/users/snippets/user_form.jinja2:12
+msgid "Can upload forms"
+msgstr "Puede cargar formularios"
+
+#: sso/templates/generic/login.jinja2:8
+msgid "Welcome to the MEARL platform"
+msgstr "Bienvenido a la plataforma MEARL"
+
+#: sso/templates/generic/login.jinja2:22
+msgid "Sign in with your HealthRight account"
+msgstr "Inicie sesión con su cuenta HealthRight"
+
+#: sso/templates/generic/login.jinja2:24
+msgid "or if you are an intern with your email address and password"
+msgstr "o si eres becario con tu dirección de correo electrónico y contraseña"
+
+#: sso/templates/generic/login.jinja2:27
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: sso/templates/generic/login.jinja2:29
+msgid "Email address"
+msgstr "Dirección de correo electrónico"
+
+#: sso/templates/generic/login.jinja2:32
+msgid "Password"
+msgstr "Contraseña"
+
+#: sso/templates/generic/login.jinja2:37
+msgid "Sign in"
+msgstr "Iniciar sesión"
+
+#: sso/templates/generic/login.jinja2:47
+msgid "Powered by FormShare"
+msgstr "Usando FormShare"
+

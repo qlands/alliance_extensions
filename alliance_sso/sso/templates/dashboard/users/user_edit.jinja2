@@ -1,0 +1,14 @@
+{% extend_me %}
+
+{% block scripts %}
+    {{ super() }}
+    <script>
+        $(document).ready(function() {
+            var elem_project = document.querySelector('.js-switch-project');
+            var switchery_project = new Switchery(elem_project, { color: '#1AB394' });
+
+            var elem_form = document.querySelector('.js-switch-form');
+            var switchery_form = new Switchery(elem_form, { color: '#1AB394' });
+        });
+    </script>
+{% endblock scripts %}

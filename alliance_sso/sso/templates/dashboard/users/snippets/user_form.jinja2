@@ -1,0 +1,16 @@
+{% extend_me %}
+
+{% block user_form_controls_extra %}
+    <div class="form-group row"><label class="col-sm-2 col-form-label">{{ _('Is super user') }}</label>
+        <div class="col-sm-10"><input type="checkbox" name="user_super" class="js-switch" {% if userData|length > 0 %} {% if userData.user_super == 1 %}checked{% endif %}{% endif %} /></div>
+    </div>
+    <div class="hr-line-dashed"></div>
+    <div class="form-group row"><label class="col-sm-2 col-form-label">{{ _('Can create projects') }}</label>
+        <div class="col-sm-10"><input type="checkbox" name="user_can_projects" class="js-switch-project" {% if userData|length > 0 %} {% if userData.user_can_projects == 1 %}checked{% endif %}{% endif %} /></div>
+    </div>
+    <div class="hr-line-dashed"></div>
+    <div class="form-group row"><label class="col-sm-2 col-form-label">{{ _('Can upload forms') }}</label>
+        <div class="col-sm-10"><input type="checkbox" name="user_can_forms" class="js-switch-form" {% if userData|length > 0 %} {% if userData.user_can_forms == 1 %}checked{% endif %}{% endif %} /></div>
+    </div>
+    <div class="hr-line-dashed"></div>
+{% endblock user_form_controls_extra %}

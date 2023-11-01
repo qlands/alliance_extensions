@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: HealthRight_sso\n"
+"Language: fr\n"
+
+#: sso/plugin.py:83
+msgid "You must use the link \"Sign in with your HealthRight account\""
+msgstr "Vous devez utiliser le lien \"Se connecter avec votre compte HealthRight\"."
+
+#: sso/views.py:76 sso/views.py:92
+msgid "Error while authorizing your credentials"
+msgstr "Erreur d'autorisation de vos données d'identification"
+
+#: sso/views.py:101
+msgid "Your user account hasn't been registered in MEARL. Contact the MEARL administrator"
+msgstr "Votre compte d'utilisateur n'a pas été enregistré chez MEARL. Veuillez contacter l'administrateur MEARL."
+
+#: sso/templates/dashboard/users/snippets/user_form.jinja2:4
+msgid "Is super user"
+msgstr "Vous êtes un superutilisateur"
+
+#: sso/templates/dashboard/users/snippets/user_form.jinja2:8
+msgid "Can create projects"
+msgstr "Vous pouvez créer des projets"
+
+#: sso/templates/dashboard/users/snippets/user_form.jinja2:12
+msgid "Can upload forms"
+msgstr "Vous pouvez télécharger des formulaires"
+
+#: sso/templates/generic/login.jinja2:8
+msgid "Welcome to the MEARL platform"
+msgstr "Bienvenue sur la plateforme MEARL"
+
+#: sso/templates/generic/login.jinja2:22
+msgid "Sign in with your HealthRight account"
+msgstr "Connectez-vous avec votre compte HealthRight"
+
+#: sso/templates/generic/login.jinja2:24
+msgid "or if you are an intern with your email address and password"
+msgstr "ou si vous êtes boursier avec votre adresse électronique et votre mot de passe"
+
+#: sso/templates/generic/login.jinja2:27
+msgid "Username"
+msgstr "Nom de l'utilisateur"
+
+#: sso/templates/generic/login.jinja2:29
+msgid "Email address"
+msgstr "Adresse électronique"
+
+#: sso/templates/generic/login.jinja2:32
+msgid "Password"
+msgstr "Mot de passe"
+
+#: sso/templates/generic/login.jinja2:37
+msgid "Sign in"
+msgstr "Se connecter"
+
+#: sso/templates/generic/login.jinja2:47
+msgid "Powered by FormShare"
+msgstr "Utilisation de FormShare"
+

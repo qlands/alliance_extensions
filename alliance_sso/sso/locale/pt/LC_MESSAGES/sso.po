@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: HealthRight_sso\n"
+"Language: pt-br\n"
+
+#: sso/plugin.py:83
+msgid "You must use the link \"Sign in with your HealthRight account\""
+msgstr "Você deve usar o link \"Entrar com sua conta HealthRight\"."
+
+#: sso/views.py:76 sso/views.py:92
+msgid "Error while authorizing your credentials"
+msgstr "Erro ao autorizar suas credenciais"
+
+#: sso/views.py:101
+msgid "Your user account hasn't been registered in MEARL. Contact the MEARL administrator"
+msgstr "Sua conta de usuário não foi registrada no MEARL. Entre em contato com o administrador da MEARL."
+
+#: sso/templates/dashboard/users/snippets/user_form.jinja2:4
+msgid "Is super user"
+msgstr "Você é um superusuário"
+
+#: sso/templates/dashboard/users/snippets/user_form.jinja2:8
+msgid "Can create projects"
+msgstr "Você pode criar projetos"
+
+#: sso/templates/dashboard/users/snippets/user_form.jinja2:12
+msgid "Can upload forms"
+msgstr "Você pode carregar formulários"
+
+#: sso/templates/generic/login.jinja2:8
+msgid "Welcome to the MEARL platform"
+msgstr "Bem-vindo à plataforma MEARL"
+
+#: sso/templates/generic/login.jinja2:22
+msgid "Sign in with your HealthRight account"
+msgstr "Faça login com sua conta HealthRight"
+
+#: sso/templates/generic/login.jinja2:24
+msgid "or if you are an intern with your email address and password"
+msgstr "ou se você for bolsista com seu endereço de e-mail e senha"
+
+#: sso/templates/generic/login.jinja2:27
+msgid "Username"
+msgstr "Nome do usuário"
+
+#: sso/templates/generic/login.jinja2:29
+msgid "Email address"
+msgstr "Endereço de e-mail"
+
+#: sso/templates/generic/login.jinja2:32
+msgid "Password"
+msgstr "Senha"
+
+#: sso/templates/generic/login.jinja2:37
+msgid "Sign in"
+msgstr "Fazer login"
+
+#: sso/templates/generic/login.jinja2:47
+msgid "Powered by FormShare"
+msgstr "Usando o FormShare"
+

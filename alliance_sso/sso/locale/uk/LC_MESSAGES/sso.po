@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: HealthRight_sso\n"
+"Language: uk\n"
+
+#: sso/plugin.py:83
+msgid "You must use the link \"Sign in with your HealthRight account\""
+msgstr "Ви повинні скористатися посиланням \"Увійдіть за допомогою свого облікового запису HealthRight\""
+
+#: sso/views.py:76 sso/views.py:92
+msgid "Error while authorizing your credentials"
+msgstr "Помилка під час авторизації облікових даних"
+
+#: sso/views.py:101
+msgid "Your user account hasn't been registered in MEARL. Contact the MEARL administrator"
+msgstr "Ваш обліковий запис користувача не зареєстровано в MEARL. Зверніться до адміністратора MEARL"
+
+#: sso/templates/dashboard/users/snippets/user_form.jinja2:4
+msgid "Is super user"
+msgstr "є суперкористувачем"
+
+#: sso/templates/dashboard/users/snippets/user_form.jinja2:8
+msgid "Can create projects"
+msgstr "Може створювати проекти"
+
+#: sso/templates/dashboard/users/snippets/user_form.jinja2:12
+msgid "Can upload forms"
+msgstr "Можна завантажувати форми"
+
+#: sso/templates/generic/login.jinja2:8
+msgid "Welcome to the MEARL platform"
+msgstr "Ласкаво просимо до платформи MEARL"
+
+#: sso/templates/generic/login.jinja2:22
+msgid "Sign in with your HealthRight account"
+msgstr "Увійдіть за допомогою свого облікового запису HealthRight"
+
+#: sso/templates/generic/login.jinja2:24
+msgid "or if you are an intern with your email address and password"
+msgstr "або якщо ви стажер - адресу електронної пошти та пароль"
+
+#: sso/templates/generic/login.jinja2:27
+msgid "Username"
+msgstr "Ім'я користувача"
+
+#: sso/templates/generic/login.jinja2:29
+msgid "Email address"
+msgstr "Адреса електронної пошти"
+
+#: sso/templates/generic/login.jinja2:32
+msgid "Password"
+msgstr "Пароль"
+
+#: sso/templates/generic/login.jinja2:37
+msgid "Sign in"
+msgstr "Увійдіть в систему"
+
+#: sso/templates/generic/login.jinja2:47
+msgid "Powered by FormShare"
+msgstr "На основі FormShare"
+

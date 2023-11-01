@@ -1,0 +1,7 @@
+client_secret = change
+authority = https://login.microsoftonline.com/common
+client_id = change
+redirect_path = /getAToken
+endpoint = https://graph.microsoft.com/v1.0/users
+scope = User.ReadBasic.All
+session_type = filesystem
