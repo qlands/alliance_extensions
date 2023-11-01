@@ -99,7 +99,7 @@ def sso_authorized(request):
         if request.session["sso_user"] is None:
             request.session.flash(
                 _(
-                    "Your user account hasn't been registered in MEARL. Contact the MEARL administrator"
+                    "Your user account hasn't been registered in FormShare. Contact the FormShare administrator"
                 )
             )
             return HTTPFound(request.route_url("login"))
