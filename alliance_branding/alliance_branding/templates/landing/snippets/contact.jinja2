@@ -5,21 +5,19 @@
 {% endblock contact_header %}
 
 {% block address %}
-    <strong><span class="navy">Alliance Headquarters</span></strong><br/>
-    <a href="https://www.google.com/maps?q=Via+dei+Tre+Denari+472/a,+00057+Maccarese+(Fiumicino)+Rome,+Italy&um=1&ie=UTF-8&sa=X&ved=2ahUKEwj9tpfKu6bpAhVrzqYKHW-9B0kQ_AUoAXoECA0QAw" target="_blank">
-     Via dei Tre Denari 472/a, <br/>00057 Maccarese (Fiumicino) Rome, <br/>Italy
+    <strong><span class="navy">CGIAR</span></strong><br/>
+    <a href="https://maps.app.goo.gl/3ipQcTmu3AeaBpcw9" target="_blank">
+     1000 Av. Agropolis<br/>34394 Montpellier cedex 5 <br/>France
     </a>
     <br/>
     <br/>
-    <abbr>{{ _('Phone') }}:</abbr> (+39) 0661181
-    <br/>
-    <abbr>{{ _('Fax') }}:</abbr> (+39) 0661979661
+    <abbr>{{ _('Phone') }}:</abbr> +33 (0) 426 69 00 20
+
 {% endblock address %}
 
 {% block terms %}
     <p class="text-center">
-        <a href="https://alliancebioversityciat.org/" target="_blank"><img src="{{request.url_for_static('alliance_logo_blue.png','alliance')}}"></a><br/><br/>
-        <a href="http://cgiar.org/" target="_blank"><img src="{{request.url_for_static('cgiar_logo_blue.png','alliance')}}"></a>
+        <a href="https://www.cgiar.org/" target="_blank"><img src="{{request.url_for_static('cgiar_logo_blue.png','alliance')}}"></a>
     </p>
 {% endblock terms %}
 
@@ -30,15 +28,15 @@
             {{ _('Or follow us on social media') }}
         </p>
         <ul class="list-inline social-icon">
-            <li class="list-inline-item"><a href="https://twitter.com/BiovIntCIAT_eng" target="_blank"><i class="fa fa-twitter"></i></a></li>
-            <li class="list-inline-item"><a href="https://www.facebook.com/BiovIntCIAT.eng/" target="_blank"><i class="fab fa-facebook"></i></a></li>
-            <li class="list-inline-item"><a href="https://www.linkedin.com/company/ciat" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <li class="list-inline-item"><a href="https://www.instagram.com/bioversityciat/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li class="list-inline-item"><a href="http://twitter.com/CGIAR/" target="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li class="list-inline-item"><a href="https://www.facebook.com/CGIAR-270424969671619/" target="_blank"><i class="fab fa-facebook"></i></a></li>
+            <li class="list-inline-item"><a href="https://www.linkedin.com/company/3279391/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCYuSEwWKAsoNwg6MJEI-qeA" target="_blank"><i class="fab fa-youtube"></i></a></li>
         </ul>
     </div>
 {% endblock contact_and_social %}
 
 {% block version %}
     <strong><a href="https://github.com/qlands/FormShare" target="_blank">{{ _('Powered by FormShare') }}</a> {{ request.h.get_version() }}</strong>
-{#    <p><strong>&copy; 2021 The Alliance of Bioversity International and CIAT</strong></p>#}
+{#    <p><strong>&copy; 2024 CGIAR</strong></p>#}
 {% endblock version %}
