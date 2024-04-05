@@ -1,0 +1,20 @@
+[
+  {
+        "ftp.project":"4efaa5e9-efdd-49c8-a9cc-00cb21844890",
+        "ftp.repository.path":"/opt/formshare_repository/ftp/croppie/photos",
+        "ftp.server":"ftp.ciat.cgiar.org",
+        "ftp.user":"croppie",
+        "ftp.password":"secret",
+        "ftp.path":"/FOTOS/",
+        "ftp.submission.db":"/opt/formshare_repository/ftp/croppie/ftp_submission.db"
+    },
+    {
+        "ftp.project":"65a6ebf1-2f5b-4d4a-aa9a-00bff66342e1",
+        "ftp.repository.path":"/opt/formshare_repository/ftp/artermis/photos",
+        "ftp.server":"ftp.ciat.cgiar.org",
+        "ftp.user":"artemis",
+        "ftp.password":"secret",
+        "ftp.path":"/FOTOS/",
+        "ftp.submission.db":"/opt/formshare_repository/ftp/artermis/ftp_submission.db"
+    }
+]

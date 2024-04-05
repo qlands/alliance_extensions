@@ -19,7 +19,16 @@ def ftp_transfer(self, settings, submission):
     ftp_submission_db = settings.get("ftp.submission.db")
     if os.path.exists(repository_path):
         sqlite_engine = "sqlite:///{}".format(ftp_submission_db)
+        create_table = False
+        if not os.path.exists(ftp_submission_db):
+            create_table = True
         engine = create_engine(sqlite_engine)
+        if create_table:
+            engine.execute(
+                "CREATE TABLE IF NOT EXISTS submission (submission_id varchar(64),"
+                "submission_datetime datetime,odk_submission varchar(64),submission_file TEXT,"
+                "submission_size NUMERIC,submission_status INTEGER,PRIMARY KEY(submission_id))"
+            )
         media_path = os.path.join(repository_path, *["*.*"])
         files = glob.glob(media_path)
         redis_host = settings.get("redis.sessions.host", "localhost")
