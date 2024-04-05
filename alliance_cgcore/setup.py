@@ -32,5 +32,9 @@ setup(
     zip_safe=False,
     extras_require={"testing": tests_require},
     install_requires=requires,
-    entry_points={"formshare.plugins": ["alliance_cgcore = alliance_cgcore.plugin:alliance_cgcore"]},
+    entry_points={
+        "formshare.plugins": [
+            "alliance_cgcore = alliance_cgcore.plugin:alliance_cgcore"
+        ]
+    },
 )

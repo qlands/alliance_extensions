@@ -80,9 +80,7 @@ class sso(plugins.SingletonPlugin):
         user_email = user_email.strip()
         user_email = user_email.lower()
         if user_email.find("@cgiar.org") >= 0:
-            return False, _(
-                'You must use the link "Sign in with your CGIAR account"'
-            )
+            return False, _('You must use the link "Sign in with your CGIAR account"')
         else:
             return True, ""
 

@@ -81,7 +81,9 @@ class alliance_authentication(plugins.SingletonPlugin):
                 else:
                     return (
                         False,
-                        _("Timeout while authenticating your account with the CGIAR AD"),
+                        _(
+                            "Timeout while authenticating your account with the CGIAR AD"
+                        ),
                     )
             if time_out_flag:
                 return (
@@ -112,11 +114,13 @@ class alliance_authentication(plugins.SingletonPlugin):
                     )
                     return (
                         False,
-                        _("The email account does not exist or the password is invalid"),
+                        _(
+                            "The email account does not exist or the password is invalid"
+                        ),
                     )
         else:
             if check_login(user_data["user_id"], password, request):
-                return True,""
+                return True, ""
             else:
                 return (
                     False,
