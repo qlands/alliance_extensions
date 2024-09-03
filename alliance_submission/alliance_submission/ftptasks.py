@@ -2,6 +2,7 @@ from formshare.config.celery_app import celeryApp
 from formshare.config.celery_class import CeleryTask
 import os
 import glob
+import re
 from subprocess import Popen, PIPE
 import uuid
 import datetime
@@ -41,6 +42,20 @@ def ftp_transfer(self, settings, submission):
             if os.path.exists(media_file):
                 redis_key = "ftp-{}".format(os.path.basename(media_file))
                 if r.get(redis_key) is None:
+                    file_name = os.path.basename(media_file)
+
+                    # Search for the last two underscores
+                    matches = re.finditer(r"_", file_name)
+                    positions = [match.start() for match in matches]
+                    last_two_positions = positions[-2:]
+
+                    # Split the string at the last two underscores
+                    file_part = file_name[last_two_positions[1] + 1 :]
+                    submission_part = file_name[
+                        last_two_positions[0] + 1 : last_two_positions[1]
+                    ]
+                    form_part = file_name[: last_two_positions[0]]
+
                     r.mset({redis_key: 1})
                     ftp_server = settings.get("ftp.server")
                     ftp_user = settings.get("ftp.user")
