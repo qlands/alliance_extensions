@@ -85,8 +85,9 @@ class AllianceSubmission(plugins.SingletonPlugin):
                     im.save(media_file)
                 else:
                     if (
-                        os.path.basename(media_file).upper().index(".M4A") >= 0
-                        or os.path.basename(media_file).upper().index(".AMR") >= 0
+                        os.path.basename(media_file).upper().find(".M4A") >= 0
+                        or os.path.basename(media_file).upper().find(".AMR") >= 0
+                        or os.path.basename(media_file).upper().find(".AAC") >= 0
                     ):
                         ftp_repository_path = a_setting.get("ftp.repository.path")
                         repository_path = os.path.join(
