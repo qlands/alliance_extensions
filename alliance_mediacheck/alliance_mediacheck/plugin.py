@@ -112,8 +112,8 @@ class AllianceMediaCheck(plugins.SingletonPlugin):
                                 not_found_media_files.append(a_media_file)
                         if len(not_found_media_files) > 0:
                             not_found_string = ",".join(not_found_media_files)
-                            message = "MediaCheck - Some media files are missing in submission {}: {}".format(
-                                submission, not_found_string
+                            message = "MediaCheck - Some media files are missing in submission {} ({}) by {}: {}".format(
+                                submission, primary_key, assistant, not_found_string
                             )
                             log.error(message)
                             send_email(
